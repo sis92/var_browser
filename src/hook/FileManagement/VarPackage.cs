@@ -651,9 +651,10 @@ namespace var_browser
 
 					metaEntry = null;
 					string cacheJson = "Cache/AllPackagesJSON/" + this.Uid + ".json";
-					if (File.Exists(cacheJson))
+
+                    if (File.Exists(cacheJson) && new FileInfo(cacheJson).LastWriteTime >= fileInfo.LastWriteTime)
 					{
-						SerializableVarPackage vp = VarPackageMgr.singleton.TryGetCache(this.Uid);
+                        SerializableVarPackage vp = VarPackageMgr.singleton.TryGetCache(this.Uid);
                         if (vp == null)
                         {
 							string text = File.ReadAllText(cacheJson);

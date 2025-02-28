@@ -140,7 +140,7 @@ namespace var_browser
 					installPath = "AddonPackages" + Path.Substring("AllPackages".Length);
 					repoPath = Path;
 				}
-				//卸载
+				//安装
 				if (File.Exists(repoPath))
 				{
 					if (!File.Exists(installPath))
